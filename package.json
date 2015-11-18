@@ -26,7 +26,8 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel/register",
-    "main": "dist/index.js"
+    "pretest": "grunt",
+    "prepublish": "npm run test"
   },
   "devDependencies": {
     "babel": "^5.8.34",
