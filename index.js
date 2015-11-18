@@ -1,5 +1,5 @@
-var Database = require('./dist/Database');
-var Collection = require('./dist/Collection');
+var Database = require('./lib/Database');
+var Collection = require('./lib/Collection');
 var mongodb = require('mongodb-core');
 var coreJs = require('babel-runtime/core-js').default;
 
