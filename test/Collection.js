@@ -5,7 +5,6 @@ import {ObjectId} from '../index.js';
 
 require('bluebird').longStackTraces();
 
-
 describe('Collection', function () {
   let db;
   let collection;
