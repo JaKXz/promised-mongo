@@ -1,9 +1,9 @@
-var Database = require('./lib/Database');
-var Collection = require('./lib/Collection');
-var mongodb = require('mongodb-core');
-var coreJs = require('babel-runtime/core-js').default;
+const Database = require('./lib/Database');
+const Collection = require('./lib/Collection');
+const mongodb = require('mongodb-core');
+const coreJs = require('babel-runtime/core-js').default;
 
-var ES2015Proxy = null;
+let ES2015Proxy = null;
 
 if (typeof Proxy !== 'undefined') {
   ES2015Proxy = require('harmony-proxy');
@@ -11,7 +11,7 @@ if (typeof Proxy !== 'undefined') {
 
 
 function createDatabase(connectionString, options, collections) {
-  var db = new Database(connectionString, options, collections);
+  let db = new Database(connectionString, options, collections);
 
   db.ObjectId = mongodb.BSON.ObjectId;
   db.DBRef = mongodb.BSON.DBRef;
@@ -20,7 +20,7 @@ function createDatabase(connectionString, options, collections) {
   db.MaxKey = mongodb.BSON.MaxKey;
   db.NumberLong = mongodb.BSON.Long;
 
-  var ret;
+  let ret;
 
   if (ES2015Proxy) {
     ret = new ES2015Proxy(db, {
@@ -69,7 +69,7 @@ createDatabase.compatible = function () {
       return this.then(callback, function (err) { callback(); throw err; });
   };
 
-  var findAndModify = Collection.prototype.findAndModify;
+  let findAndModify = Collection.prototype.findAndModify;
   Collection.prototype.findAndModifyEx = findAndModify;
 
   Collection.prototype.findAndModify = function () {
