@@ -29,7 +29,7 @@
     "readable-stream": "^1.1.13"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel/register --require mocha.conf.js",
+    "test": "mocha --harmony-proxies",
     "pretest": "grunt",
     "prepublish": "npm run test"
   },
