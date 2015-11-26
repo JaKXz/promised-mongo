@@ -1,10 +1,6 @@
-
-
-import {expect} from 'chai';
-import Database from '../lib/Database';
+import Database from '../dist/lib/Database';
 
 require('bluebird').longStackTraces();
-
 
 describe('Database-connect', function () {
   describe('connect', function () {
