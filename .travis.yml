@@ -3,7 +3,7 @@ node_js:
   - "stable"
   - "unstable"
   - "4.2"
-
+before_install: npm install -g grunt-cli
 sudo: false
 matrix:
   fast_finish: true
