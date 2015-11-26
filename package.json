@@ -24,12 +24,12 @@
     "bluebird": "^3.0.5",
     "harmony-proxy": "~0.1.0",
     "lodash": "^3.10.1",
-    "mongodb-core": "^1.2.24",
+    "mongodb-core": "^1.2.25",
     "parse-mongo-url": "^1.1.0",
     "readable-stream": "^1.1.13"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel/register",
+    "test": "mocha --compilers js:babel/register --require mocha.conf.js",
     "pretest": "grunt",
     "prepublish": "npm run test"
   },
