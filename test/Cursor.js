@@ -1,6 +1,5 @@
-import {expect} from 'chai';
-import Database from '../lib/Database';
-import Cursor from '../lib/Cursor';
+import Database from '../dist/lib/Database';
+import Cursor from '../dist/lib/Cursor';
 
 require('bluebird').longStackTraces();
 
