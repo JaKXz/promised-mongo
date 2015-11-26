@@ -2,13 +2,7 @@ const Database = require('./lib/Database');
 const Collection = require('./lib/Collection');
 const mongodb = require('mongodb-core');
 const coreJs = require('babel-runtime/core-js').default;
-
-let ES2015Proxy = null;
-
-if (typeof Proxy !== 'undefined') {
-  ES2015Proxy = require('harmony-proxy');
-}
-
+const Proxy = require('harmony-proxy');
 
 function createDatabase(connectionString, options, collections) {
   let db = new Database(connectionString, options, collections);
@@ -20,23 +14,15 @@ function createDatabase(connectionString, options, collections) {
   db.MaxKey = mongodb.BSON.MaxKey;
   db.NumberLong = mongodb.BSON.Long;
 
-  let ret;
-
-  if (ES2015Proxy) {
-    ret = new ES2015Proxy(db, {
-      get: function (target, property) {
-        if (target[property]) {
-          return target[property];
-        } else {
-          return target[property] = target.collection(property);
-        }
+  return new Proxy(db, {
+    get: function (target, property) {
+      if (target[property]) {
+        return target[property];
+      } else {
+        return target[property] = target.collection(property);
       }
-    });
-  } else {
-    ret = db;
-  }
-
-  return ret;
+    }
+  });
 }
 
 
@@ -83,7 +69,6 @@ createDatabase.compatible = function () {
 
   return this;
 };
-
 
 createDatabase.ObjectId = mongodb.BSON.ObjectId;
 createDatabase.DBRef = mongodb.BSON.DBRef;
