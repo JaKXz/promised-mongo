@@ -1,6 +1,9 @@
 module.exports = function (grunt) {
   grunt.initConfig({
     babel: {
+      options: {
+        sourceMap: true
+      },
       dist: {
         files: [{
           expand: true,

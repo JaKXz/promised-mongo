@@ -1,2 +1,3 @@
 --compilers js:babel/register
 --require mocha.conf.js
+--require source-map-support/register
