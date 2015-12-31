@@ -2,8 +2,6 @@ import Database from '../dist/lib/Database';
 import Cursor from '../dist/lib/Cursor';
 import {ObjectId} from '../dist/index.js';
 
-require('bluebird').longStackTraces();
-
 describe('Collection', function () {
   let db;
   let collection;

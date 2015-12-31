@@ -1,8 +1,5 @@
 import Database from '../dist/lib/Database';
 
-require('bluebird').longStackTraces();
-
-
 describe('Database', function () {
   let db;
 

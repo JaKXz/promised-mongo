@@ -1,9 +1,6 @@
 import Database from '../dist/lib/Database';
 import Cursor from '../dist/lib/Cursor';
 
-require('bluebird').longStackTraces();
-
-
 describe('Cursor', function () {
   let db, collection;
 

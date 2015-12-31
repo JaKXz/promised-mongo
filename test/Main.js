@@ -1,7 +1,5 @@
 import pmongo from '../dist/index.js';
 
-require('bluebird').longStackTraces();
-
 describe('Main', function () {
 
   describe('Proxy', function () {
