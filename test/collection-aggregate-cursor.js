@@ -7,6 +7,11 @@ import initContext from '../test-utils/init-db-collection';
 
 test.beforeEach('init db and collection', initContext('collection-aggregate-cursor'));
 
+test('subclass Cursor', async t => {
+  const cursor = t.context.collection.aggregateCursor({'$group': {_id: '$type'}});
+  t.is(cursor instanceof Cursor, true, 'collection.aggregateCursor should subclass the Cursor');
+});
+
 test('$group', async t => {
   await t.context.collection.insert([
     { name: 'Squirtle', type: 'water' },
@@ -15,10 +20,7 @@ test('$group', async t => {
     { name: 'Lapras', type: 'water' }
   ]);
 
-  const cursor = t.context.collection.aggregateCursor({'$group': {_id: '$type'}});
-  expect(cursor).to.be.an.instanceof(Cursor);
-
-  const result = await cursor.toArray();
+  const result = await t.context.collection.aggregateCursor({'$group': {_id: '$type'}}).toArray();
   expect(result).to.deep.have.members([{_id: 'water' }, {_id: 'fire'}],
     'collection.aggregateCursor should support the $group operator.');
 });
