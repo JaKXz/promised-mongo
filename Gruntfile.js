@@ -3,8 +3,7 @@ module.exports = function (grunt) {
     babel: {
       options: {
         optional: ['runtime'],
-        stage: 0,
-        sourceMap: true
+        stage: 0
       },
       dist: {
         files: [{
