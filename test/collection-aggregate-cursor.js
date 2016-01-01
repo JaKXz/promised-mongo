@@ -12,7 +12,7 @@ test('subclass Cursor', async t => {
   t.is(cursor instanceof Cursor, true, 'collection.aggregateCursor should subclass the Cursor');
 });
 
-test('$group', async t => {
+test('support $group', async t => {
   await t.context.collection.insert([
     { name: 'Squirtle', type: 'water' },
     { name: 'Starmie', type: 'water' },
