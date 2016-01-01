@@ -29,7 +29,7 @@
     "readable-stream": "^1.1.13"
   },
   "scripts": {
-    "test": "ava test/collection-aggregate.js",
+    "test": "ava --tap | tap-spec",
     "pretest": "grunt",
     "prepublish": "npm run test"
   },
@@ -40,6 +40,7 @@
     "grunt": "^0.4.5",
     "grunt-babel": "^5.0.3",
     "grunt-contrib-clean": "^0.7.0",
-    "load-grunt-tasks": "^3.2.0"
+    "load-grunt-tasks": "^3.2.0",
+    "tap-spec": "^4.1.1"
   }
 }

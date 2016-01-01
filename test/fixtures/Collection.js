@@ -1,7 +1,6 @@
 import Database from '../dist/lib/Database';
 import Cursor from '../dist/lib/Cursor';
 import {ObjectId} from '../dist/index.js';
-
 require('bluebird').longStackTraces();
 
 describe('Collection', function () {
@@ -14,7 +13,7 @@ describe('Collection', function () {
     collection = db.collection('docs');
   });
 
-  describe('aggregate', function () {
+  describe.skip('aggregate', function () {
     it('supports $group', async function () {
       await collection.insert([
         { name: 'Squirtle', type: 'water' },
@@ -467,7 +466,6 @@ describe('Collection', function () {
       expect(cmp).to.deep.have.members([doc]);
     });
   });
-
 
   describe('update', function () {
     it('sets a field to a different value', async function () {

@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     babel: {
       options: {
-        optional: ["runtime"],
+        optional: ['runtime'],
         stage: 0,
         sourceMap: true
       },
