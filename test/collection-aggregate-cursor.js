@@ -1,6 +1,8 @@
 import test from 'ava';
 import {expect} from 'chai';
+
 import Database from '../dist/lib/Database';
+import Cursor from '../dist/lib/Cursor';
 
 test.beforeEach('init db and collection', async t => {
   t.context.db = new Database('pmongo_test', {emitError: true});
@@ -16,7 +18,10 @@ test('$group', async t => {
     { name: 'Lapras', type: 'water' }
   ]);
 
-  let result = await t.context.collection.aggregate({'$group': {_id: '$type'}});
+  const cursor = t.context.collection.aggregateCursor({'$group': {_id: '$type'}});
+  expect(cursor).to.be.an.instanceof(Cursor);
+
+  const result = await cursor.toArray();
   expect(result).to.deep.have.members([{_id: 'water' }, {_id: 'fire'}],
-    'collection.aggregate should support the $group operator.');
+    'collection.aggregateCursor should support the $group operator.');
 });
