@@ -1,14 +1,11 @@
 import test from 'ava';
 import {expect} from 'chai';
-
-import Database from '../dist/lib/Database';
 import Cursor from '../dist/lib/Cursor';
 
-test.beforeEach('init db and collection', async t => {
-  t.context.db = new Database('pmongo_test', {emitError: true});
-  await t.context.db.dropDatabase();
-  t.context.collection = t.context.db.collection('docs');
-});
+import 'babel/register';
+import initContext from '../test-utils/init-db-collection';
+
+test.beforeEach('init db and collection', initContext('collection-aggregate-cursor'));
 
 test('$group', async t => {
   await t.context.collection.insert([
