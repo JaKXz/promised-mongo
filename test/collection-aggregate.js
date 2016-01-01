@@ -5,7 +5,7 @@ import initContext from '../test-utils/init-db-collection';
 
 test.beforeEach('init db and collection', initContext('collection-aggregate'));
 
-test('$group', async t => {
+test('supports $group operator', async t => {
   await t.context.collection.insert([
     { name: 'Squirtle', type: 'water' },
     { name: 'Starmie', type: 'water' },
