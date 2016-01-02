@@ -30,8 +30,7 @@
   },
   "scripts": {
     "test": "nyc --require babel/register ava --verbose",
-    "pretest": "grunt",
-    "prepublish": "npm run test"
+    "prepublish": "grunt && npm run test"
   },
   "devDependencies": {
     "ava": "github:jamestalmage/ava#c202a7459",
