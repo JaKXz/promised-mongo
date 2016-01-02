@@ -1,6 +1,5 @@
 import test from 'ava';
 import {expect} from 'chai';
-import 'babel/register';
 import initContext from '../helpers/init-db-collection';
 
 test.beforeEach('init db and collection', initContext('collection-aggregate'));

@@ -6,8 +6,7 @@ import Database from '../../lib/Database';
 test('collection.drop returns true if the collection existed', async t => {
   const db = new Database('pmongo_test', {emitError: true});
   await db.createCollection('collection-drop');
-  const collection = db.collection('collection-drop');
-  const drop = await collection.drop();
+  const drop = await db.collection('collection-drop').drop();
   t.is(drop, true, 'should return true when the collection is declared');
 
   const collectionNames = await db.getCollectionNames();

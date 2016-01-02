@@ -2,7 +2,6 @@ import test from 'ava';
 import {expect} from 'chai';
 import Cursor from '../../lib/Cursor';
 
-import 'babel/register';
 import initContext from '../helpers/init-db-collection';
 
 test.beforeEach('init db and collection', initContext('collection-aggregate-cursor'));
